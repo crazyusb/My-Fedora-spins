@@ -5,8 +5,8 @@ repo --name=rpmfusion-non-free  --baseurl=http://download1.rpmfusion.org/nonfree
 repo --name=rpmfusion-non-free-updates --baseurl=http://download1.rpmfusion.org/nonfree/fedora/updates/$releasever/$basearch
 
 # My repo
-repo --name=local --baseurl=file:///home/devel/devel/rpm/benrepo
-
+#repo --name=local --baseurl=file:///home/devel/devel/rpm/benrepo
+repo --name=sysnux.cc --baseurl=http://sysnux.cc/repo 
 %packages
 
 # The package from my repo
@@ -18,7 +18,12 @@ firefox
 vim
 livecd-tools
 spin-kickstarts
-
+libgudev1-devel
+libXext-devel
+mesa-libGL-devel
+freeglut-devel
+libXrandr-devel
+uuid-devel
 
 # Remove unwanted packages
 
