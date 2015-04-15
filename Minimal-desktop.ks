@@ -1,5 +1,6 @@
 %include /usr/share/spin-kickstarts/fedora-live-base.ks
-%include /home/ben/devel/My-Fedora-spins/packages-fab.ks
+%include /home/devel/devel/Spins/iso/packages-fab.ks
+%inculde /home/devel/devel/Spins/iso/oculusrift.ks
 
 selinux --permissive
 
