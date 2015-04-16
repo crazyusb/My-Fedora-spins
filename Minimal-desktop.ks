@@ -6,6 +6,10 @@ selinux --permissive
 
 part / --size 5000
 
+lang fr_FR.UTF-8
+keyboard fr-latin9
+timezone Europe/Paris
+
 # Base ozon repo
 repo --name="Repository for Ozon OS" --baseurl=http://goodies.ozon-os.com/repo/$releasever/ --cost=1000
 
@@ -33,6 +37,7 @@ repo --name="Copr repo for chromium owned by spot" --baseurl=https://copr-be.clo
 @multimedia
 @networkmanager-submodules
 @printing
+@french-support
 
 # Exclude unwanted packages from @anaconda-tools group
 -gfs2-utils
@@ -79,6 +84,14 @@ rm -f /usr/share/icons/HighContrast/icon-theme.cache
 
 cat >> /etc/rc.d/init.d/livesys << EOF
 
+# system-config-keyboard doesn't really work (missing xorg.conf etc)
+cat >>/etc/X11/xorg.conf << EOF
+Section "InputDevice"
+    Identifier "Keyboard0"
+    Driver "kbd"
+    Option "XkbLayout" "fr-latin9"
+EndSection
+EOF
 
 # disable updates plugin
 cat >> /usr/share/glib-2.0/schemas/org.gnome.software.gschema.override << FOE
