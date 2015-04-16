@@ -1,0 +1,10 @@
+[Unit]
+Description=Oculus Rift Daemon
+After=syslog.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/ovrd
+
+[Install]
+WantedBy=multi-user.target
