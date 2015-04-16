@@ -1,10 +1,10 @@
 %include /usr/share/spin-kickstarts/fedora-live-base.ks
-%include /home/ben/devel/My-Fedora-spins/packages-fab.ks
+%include /home/devel/devel/Spins/My-Fedora-spins/packages-fab.ks
 #%inculde /home/ben/devel/My-Fedora-spins/oculusrift.ks
 
 selinux --permissive
 
-part / --size 4700
+part / --size 5000
 
 # Base ozon repo
 repo --name="Repository for Ozon OS" --baseurl=http://goodies.ozon-os.com/repo/$releasever/ --cost=1000
