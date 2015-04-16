@@ -1,6 +1,7 @@
 %include /usr/share/spin-kickstarts/fedora-live-base.ks
-%include /home/devel/devel/Spins/My-Fedora-spins/packages-fab.ks
-#%inculde /home/ben/devel/My-Fedora-spins/oculusrift.ks
+#%include /home/ben/devel/My-Fedora-spins/Game-package.ks
+%include /home/ben/devel/My-Fedora-spins/packages-fab.ks
+%include /home/ben/devel/My-Fedora-spins/oculusrift.ks
 
 selinux --permissive
 
@@ -84,15 +85,6 @@ rm -f /usr/share/icons/HighContrast/icon-theme.cache
 
 cat >> /etc/rc.d/init.d/livesys << EOF
 
-# system-config-keyboard doesn't really work (missing xorg.conf etc)
-cat >>/etc/X11/xorg.conf << EOF
-Section "InputDevice"
-    Identifier "Keyboard0"
-    Driver "kbd"
-    Option "XkbLayout" "fr-latin9"
-EndSection
-EOF
-
 # disable updates plugin
 cat >> /usr/share/glib-2.0/schemas/org.gnome.software.gschema.override << FOE
 [org.gnome.software]
@@ -149,4 +141,14 @@ restorecon -R /home/liveuser/
 
 EOF
 
+%end
+%post
+# system-config-keyboard doesn't really work (missing xorg.conf etc)
+cat >>/etc/X11/xorg.conf << EOF
+Section "InputDevice"
+    Identifier "Keyboard0"
+    Driver "kbd"
+    Option "XkbLayout" "fr-latin9"
+EndSection
+EOF
 %end

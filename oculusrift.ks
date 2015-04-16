@@ -1,9 +1,3 @@
-# RPMFusion repos
-repo --name=rpmfusion-free --baseurl=http://download1.rpmfusion.org/free/fedora/releases/$releasever/Everything/$basearch/os
-repo --name=rpmfusion-free-updates --baseurl=http://download1.rpmfusion.org/free/fedora/updates/$releasever/$basearch
-repo --name=rpmfusion-non-free  --baseurl=http://download1.rpmfusion.org/nonfree/fedora/releases/$releasever/Everything/$basearch/os
-repo --name=rpmfusion-non-free-updates --baseurl=http://download1.rpmfusion.org/nonfree/fedora/updates/$releasever/$basearch
-
 %packages
 # Oculus Dependance
 
@@ -14,4 +8,12 @@ freeglut-devel
 libXrandr-devel
 uuid-devel
 
+%end
+%post --nochroot
+wget -P /tmp http://static.oculus.com/sdk-downloads/ovr_sdk_linux_0.5.0.1.tar.xz
+cd /tmp
+tar -xvf ovr_sdk_linux_0.5.0.1.tar.xz
+cp -a /tmp/ovr_sdk_linux_0.5.0.1/Tools/RiftConfigUtil/Bin/Linux/x86_64/ReleaseStatic/RiftConfigUtil $INSTALL_ROOT/usr/bin/
+cp -a /tmp/ovr_sdk_linux_0.5.0.1/Service/OVRServer/Bin/Linux/x86_64/ReleaseStatic/ovrd $INSTALL_ROOT/usr/bin/
+cp -a /tmp/ovr_sdk_linux_0.5.0.1/LibOVR/Projects/Linux/90-oculus.rules $INSTALL_ROOT/etc/udev/rules.d/
 %end

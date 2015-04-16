@@ -9,7 +9,7 @@ repo --name=rpmfusion-non-free-updates --baseurl=http://download1.rpmfusion.org/
 # Game
 boswars
 freeciv
-alienarena
+#alienarena
 megaglest
 warmux
 openarena
