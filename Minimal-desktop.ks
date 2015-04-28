@@ -1,11 +1,11 @@
 %include /usr/share/spin-kickstarts/fedora-live-base.ks
 #%include /home/ben/devel/My-Fedora-spins/Game-package.ks
 %include /home/ben/devel/My-Fedora-spins/packages-fab.ks
-%include /home/ben/devel/My-Fedora-spins/oculusrift.ks
+#%include /home/ben/devel/My-Fedora-spins/oculusrift.ks
 
 selinux --permissive
 
-part / --size 5000
+part / --size 6000
 
 lang fr_FR.UTF-8
 keyboard fr-latin9
@@ -19,6 +19,7 @@ repo --name=rpmfusion-free --baseurl=http://download1.rpmfusion.org/free/fedora/
 repo --name=rpmfusion-free-updates --baseurl=http://download1.rpmfusion.org/free/fedora/updates/$releasever/$basearch
 repo --name=rpmfusion-non-free  --baseurl=http://download1.rpmfusion.org/nonfree/fedora/releases/$releasever/Everything/$basearch/os
 repo --name=rpmfusion-non-free-updates --baseurl=http://download1.rpmfusion.org/nonfree/fedora/updates/$releasever/$basearch
+repo --name=fedy baseurl=http://download.opensuse.org/repositories/home:/satya164:/fedy/Fedora_\$releasever/
 
 # Chormium repo
 repo --name="Copr repo for chromium owned by spot" --baseurl=https://copr-be.cloud.fedoraproject.org/results/spot/chromium/fedora-$releasever-$basearch/ --cost=1000
@@ -61,7 +62,7 @@ file-roller
 file-roller-nautilus
 gnome-system-monitor
 evince
-
+git
 
 # Remove unwanted packages
 -gthumb
@@ -143,7 +144,7 @@ EOF
 
 %end
 %post
-# system-config-keyboard doesn't really work (missing xorg.conf etc)
+#system-config-keyboard doesn't really work (missing xorg.conf etc)
 cat >>/etc/X11/xorg.conf << EOF
 Section "InputDevice"
     Identifier "Keyboard0"

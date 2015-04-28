@@ -12,6 +12,7 @@ vim
 # Package for re-spins
 livecd-tools
 spin-kickstarts
+git
 # The Oculus rift SDK depencies
 #libgudev1-devel
 #libXext-devel
