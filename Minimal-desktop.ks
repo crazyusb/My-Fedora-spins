@@ -19,7 +19,7 @@ repo --name=rpmfusion-free --baseurl=http://download1.rpmfusion.org/free/fedora/
 repo --name=rpmfusion-free-updates --baseurl=http://download1.rpmfusion.org/free/fedora/updates/$releasever/$basearch
 repo --name=rpmfusion-non-free  --baseurl=http://download1.rpmfusion.org/nonfree/fedora/releases/$releasever/Everything/$basearch/os
 repo --name=rpmfusion-non-free-updates --baseurl=http://download1.rpmfusion.org/nonfree/fedora/updates/$releasever/$basearch
-repo --name=fedy baseurl=http://download.opensuse.org/repositories/home:/satya164:/fedy/Fedora_\$releasever/
+repo --name=fedy --baseurl=http://download.opensuse.org/repositories/home:/satya164:/fedy/Fedora_\$releasever/
 
 # Chormium repo
 repo --name="Copr repo for chromium owned by spot" --baseurl=https://copr-be.cloud.fedoraproject.org/results/spot/chromium/fedora-$releasever-$basearch/ --cost=1000
